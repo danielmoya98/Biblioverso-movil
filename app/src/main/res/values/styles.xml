@@ -1,0 +1,124 @@
+<resources>
+
+    <!-- Overlay de forma para botones "pill" -->
+    <style name="ShapeAppearanceOverlay.Onboarding" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">28dp</item>
+    </style>
+
+    <!-- Alias explícito por si en algún lado usamos .Onboarding.Pill -->
+    <style name="ShapeAppearanceOverlay.Onboarding.Pill">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">28dp</item>
+    </style>
+
+    <!-- Botón principal tipo "pill" para Get Started -->
+    <style name="Widget.Onboarding.PrimaryPill" parent="Widget.Material3.Button">
+        <!-- acepta cualquiera de los dos nombres anteriores -->
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.Onboarding</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+
+    <!-- Forma redondeada tipo pill -->
+    <style name="ShapeAppearanceOverlay.Welcome.Pill" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">28dp</item>
+    </style>
+
+    <!-- Botón lleno (morados) -->
+    <style name="Widget.Welcome.PrimaryPill" parent="Widget.Material3.Button">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.Welcome.Pill</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <!-- Botón blanco con texto primario -->
+    <style name="Widget.Welcome.SecondaryPill" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@android:color/white</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <!-- Tipografías monospace para el panel -->
+    <style name="TextAppearance.Welcome.Title" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="TextAppearance.Welcome.Subtitle" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- Apariencia monospace para texto de botones -->
+    <style name="TextAppearance.Welcome.Button" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <!-- Tipos monospace -->
+    <style name="TextAppearance.Auth.Title" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/authTitle</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="TextAppearance.Auth.Subtitle" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:textColor">@color/authSubtitle</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="TextAppearance.Auth.Link" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Input "pill" lleno -->
+    <style name="Widget.Auth.InputPill" parent="Widget.Material3.TextInputLayout.FilledBox">
+        <item name="boxBackgroundMode">filled</item>
+        <item name="boxBackgroundColor">@color/inputFill</item>
+        <item name="boxStrokeColor">@android:color/transparent</item>
+        <item name="boxCornerRadiusTopStart">24dp</item>
+        <item name="boxCornerRadiusTopEnd">24dp</item>
+        <item name="boxCornerRadiusBottomStart">24dp</item>
+        <item name="boxCornerRadiusBottomEnd">24dp</item>
+        <item name="android:hint"> </item> <!-- evita salto de altura -->
+    </style>
+
+    <style name="Widget.Auth.InputEditText" parent="Widget.Material3.TextInputEditText.FilledBox">
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:textColor">@color/authTitle</item>
+    </style>
+
+    <!-- Botón pill primario -->
+    <style name="ShapeAppearanceOverlay.Auth.Pill" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">28dp</item>
+    </style>
+
+    <style name="Widget.Auth.PrimaryPill" parent="Widget.Material3.Button">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.Auth.Pill</item>
+        <item name="backgroundTint">@color/authPrimary</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <!-- Switch con colores de tema -->
+    <style name="Widget.Auth.Switch" parent="Widget.Material3.CompoundButton.MaterialSwitch">
+        <item name="useMaterialThemeColors">true</item>
+    </style>
+
+</resources>

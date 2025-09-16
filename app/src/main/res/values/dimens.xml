@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="onb_page_margin">16dp</dimen>
+    <dimen name="onb_page_peek">24dp</dimen>
+    <dimen name="onb_card_radius">24dp</dimen>
+    <dimen name="onb_illustration_w">260dp</dimen>
+    <dimen name="onb_illustration_h">220dp</dimen>
+    <dimen name="onb_buttons_height">48dp</dimen>
+</resources>

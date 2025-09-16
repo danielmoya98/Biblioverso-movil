@@ -1,0 +1,47 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <!-- Incluimos AppBar -->
+    <include
+        layout="@layout/view_app_bar"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <!-- Shimmer -->
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmerReservas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:shimmer_auto_start="true"
+            app:shimmer_duration="1500">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvShimmer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"/>
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <!-- RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvReservas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+
+        <!-- Empty State -->
+        <include
+            android:id="@+id/viewEmptyReservas"
+            layout="@layout/view_empty_reservas"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+</LinearLayout>

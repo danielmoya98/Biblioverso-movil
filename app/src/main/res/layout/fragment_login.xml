@@ -1,0 +1,122 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/heroLogin"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:src="@drawable/login_cuate"
+            android:scaleType="centerInside"
+            android:contentDescription="@string/app_name"/>
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/TextAppearance.Auth.Title"
+            android:text="Iniciar sesión"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"/>
+
+        <TextView
+            android:id="@+id/subtitle"
+            style="@style/TextAppearance.Auth.Subtitle"
+            android:text="Por favor, inicia sesión para continuar."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"/>
+
+        <!-- Correo -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Auth.InputPill"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:startIconDrawable="@drawable/ic_mail"
+            app:startIconTint="@color/authSubtitle"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etEmail"
+                style="@style/Widget.Auth.InputEditText"
+                android:hint="Correo"
+                android:background="@null"
+                android:inputType="textEmailAddress"
+                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Contraseña -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Auth.InputPill"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:startIconDrawable="@drawable/ic_lock"
+            app:startIconTint="@color/authSubtitle"
+            app:endIconMode="password_toggle"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:endIconTint="@color/authSubtitle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPass"
+                style="@style/Widget.Auth.InputEditText"
+                android:hint="Contraseña"
+                android:inputType="textPassword"
+                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Recordarme -->
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:text="Recordarme la próxima vez"
+                style="@style/TextAppearance.Auth.Subtitle"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/swRemember"
+                style="@style/Widget.Auth.Switch"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:checked="true"/>
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogin"
+            style="@style/Widget.Auth.PrimaryPill"
+            android:text="Entrar"
+            android:layout_width="match_parent" android:layout_height="52dp"
+            android:layout_marginTop="16dp"/>
+
+        <!-- CTA inferior -->
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:gravity="center" android:orientation="horizontal"
+            android:layout_marginTop="12dp">
+
+            <TextView
+                style="@style/TextAppearance.Auth.Subtitle"
+                android:text="¿No tienes cuenta? "
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvGoRegister"
+                style="@style/TextAppearance.Auth.Link"
+                android:text="Regístrate"
+                android:clickable="true"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

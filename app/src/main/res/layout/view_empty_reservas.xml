@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="32dp">
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/ic_empty_books"
+        android:contentDescription="@string/app_name"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aún no reservaste ningún libro"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descubre títulos increíbles y empieza a reservar 📚"
+        android:textSize="14sp"
+        android:textColor="?attr/colorOnSurfaceVariant"
+        android:gravity="center"
+        android:layout_marginTop="8dp"/>
+</LinearLayout>

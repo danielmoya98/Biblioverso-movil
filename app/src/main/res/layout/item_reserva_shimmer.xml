@@ -1,0 +1,31 @@
+<com.facebook.shimmer.ShimmerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="140dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:background="@drawable/bg_img">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="@color/shimmer_placeholder"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/shimmer_placeholder"/>
+
+        <View
+            android:layout_width="80dp"
+            android:layout_height="14dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/shimmer_placeholder"/>
+    </LinearLayout>
+</com.facebook.shimmer.ShimmerFrameLayout>

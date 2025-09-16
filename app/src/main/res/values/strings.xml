@@ -1,0 +1,19 @@
+<resources>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">Biblioteca</string>
+    <string name="search_hint">Buscar por título o autor</string>
+    <string name="saved_empty">Sin guardados aún</string>
+    <string name="reservations">Reservas</string>
+
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+    <string name="get_started">Get Started</string>
+    <string name="onb_title_welcome">Welcome</string>
+    <string name="onb_sub_welcome">Discover, reserve and enjoy your favorite books.</string>
+    <string name="onb_title_env">Friendly work environment</string>
+    <string name="onb_sub_env">Track reservations and get reminders before due dates.</string>
+    <string name="onb_title_team">Join our community</string>
+    <string name="onb_sub_team">Follow recommendations and share bookmarks.</string>
+
+</resources>

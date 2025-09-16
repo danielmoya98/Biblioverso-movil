@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="green">#2E7D32</color>
+    <color name="blue">#1565C0</color>
+    <color name="red">#C62828</color>
+    <color name="teal_700">#00796B</color>
+    <color name="bg">#FAFAFA</color>
+    <color name="onboarding_bg">#F5F6FA</color>
+    <color name="welcomeGradientStart">#6C63FF</color> <!-- morado -->
+    <color name="welcomeGradientEnd">#3D5AFE</color>
+    <color name="authTitle">#0D2438</color>
+    <color name="authSubtitle">#627A92</color>
+    <color name="inputFill">#EEF2F5</color>
+    <color name="authPrimary">#0D3B66</color>
+
+    <!-- Si ya tienes estos colores, no los dupliques -->
+    <color name="primary">#6750A4</color>
+    <color name="onPrimary">#FFFFFF</color>
+    <color name="primaryContainer">#EADDFF</color>
+
+    <!-- Útiles para tints/texteos si los usas -->
+    <color name="textTitle">#171717</color>
+    <color name="textBody">#6B6B6B</color>
+    <color name="track">#E5E5EA</color>
+
+    <color name="shimmer_placeholder">#E0E0E0</color>
+</resources>
