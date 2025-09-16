@@ -22,7 +22,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Descubre títulos increíbles y empieza a reservar 📚"
+        android:text="Descubre títulos increíbles y empieza a reservar "
         android:textSize="14sp"
         android:textColor="?attr/colorOnSurfaceVariant"
         android:gravity="center"

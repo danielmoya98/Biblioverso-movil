@@ -14,6 +14,18 @@
         android:layout_height="match_parent"
         android:padding="16dp">
 
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mis Libros"
+            android:textStyle="bold"
+            android:fontFamily="monospace"
+            android:layout_marginBottom="10dp"
+            android:textSize="18sp">
+
+        </TextView>
+
         <!-- Shimmer -->
         <com.facebook.shimmer.ShimmerFrameLayout
             android:id="@+id/shimmerReservas"
@@ -42,6 +54,18 @@
             android:id="@+id/viewEmptyReservas"
             layout="@layout/view_empty_reservas"
             android:visibility="gone"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mis Favoritos"
+            android:textStyle="bold"
+            android:fontFamily="monospace"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="18sp">
+
+        </TextView>
     </LinearLayout>
 
 </LinearLayout>
