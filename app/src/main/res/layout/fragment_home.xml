@@ -1,71 +1,92 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
-
-    <!-- Incluimos AppBar -->
-    <include
-        layout="@layout/view_app_bar"/>
+    android:layout_width="match_parent"
+    android:layout_marginBottom="?attr/actionBarSize"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp">
+        android:layout_height="wrap_content">
 
+        <!-- AppBar -->
+        <include layout="@layout/view_app_bar"/>
 
-        <TextView
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Mis Libros"
-            android:textStyle="bold"
-            android:fontFamily="monospace"
-            android:layout_marginBottom="10dp"
-            android:textSize="18sp">
+            android:padding="16dp">
 
-        </TextView>
+            <!-- RESERVAS -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mis Libros"
+                android:textStyle="bold"
+                android:fontFamily="monospace"
+                android:layout_marginBottom="10dp"
+                android:textSize="18sp"/>
 
-        <!-- Shimmer -->
-        <com.facebook.shimmer.ShimmerFrameLayout
-            android:id="@+id/shimmerReservas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:shimmer_auto_start="true"
-            app:shimmer_duration="1500">
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmerReservas"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                app:shimmer_auto_start="true"
+                app:shimmer_duration="1500">
+
+                <include layout="@layout/item_reserva_shimmer"/>
+            </com.facebook.shimmer.ShimmerFrameLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvShimmer"
+                android:id="@+id/rvReservas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="8dp"/>
-        </com.facebook.shimmer.ShimmerFrameLayout>
+                android:nestedScrollingEnabled="false"
+                android:overScrollMode="never"
+                android:visibility="gone"/>
 
-        <!-- RecyclerView -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvReservas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"/>
+            <include
+                android:id="@+id/viewEmptyReservas"
+                layout="@layout/view_empty_reservas"
+                android:visibility="gone"/>
 
-        <!-- Empty State -->
-        <include
-            android:id="@+id/viewEmptyReservas"
-            layout="@layout/view_empty_reservas"
-            android:visibility="gone"/>
+            <!-- FAVORITOS -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mis Favoritos"
+                android:textStyle="bold"
+                android:fontFamily="monospace"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="18sp"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Mis Favoritos"
-            android:textStyle="bold"
-            android:fontFamily="monospace"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:textSize="18sp">
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmerFavoritos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:shimmer_auto_start="true"
+                app:shimmer_duration="1500">
+                <include layout="@layout/item_favorito_shimmer"/>
+            </com.facebook.shimmer.ShimmerFrameLayout>
 
-        </TextView>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvFavoritos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:overScrollMode="never"
+                android:visibility="gone"
+                android:padding="4dp"
+                android:clipToPadding="false"/>
+
+            <include
+                android:id="@+id/viewEmptyFavoritos"
+                layout="@layout/view_empty_favoritos"
+                android:visibility="gone"/>
+        </LinearLayout>
     </LinearLayout>
-
-</LinearLayout>
+</androidx.core.widget.NestedScrollView>

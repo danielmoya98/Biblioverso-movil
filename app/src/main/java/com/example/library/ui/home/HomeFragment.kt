@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.library.R
@@ -18,23 +19,39 @@ import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
 
-    private lateinit var shimmer: com.facebook.shimmer.ShimmerFrameLayout
-    private lateinit var rv: RecyclerView
-    private lateinit var emptyState: LinearLayout
-    private val adapter = ReservaAdapter(emptyList())
-    private val vm: ReservaViewModel by viewModels()
+    // Reservas
+    private lateinit var shimmerReservas: com.facebook.shimmer.ShimmerFrameLayout
+    private lateinit var rvReservas: RecyclerView
+    private lateinit var emptyReservas: LinearLayout
+    private val reservasAdapter = ReservaAdapter(emptyList())
+    private val reservasVM: ReservaViewModel by viewModels()
+
+    // Favoritos
+    private lateinit var shimmerFavoritos: com.facebook.shimmer.ShimmerFrameLayout
+    private lateinit var rvFavoritos: RecyclerView
+    private lateinit var emptyFavoritos: LinearLayout
+    private val favoritosAdapter = FavoritoAdapter(emptyList())
+    private val favoritosVM: FavoritoViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         val root = inflater.inflate(R.layout.fragment_home, container, false)
-        shimmer = root.findViewById(R.id.shimmerReservas)
-        rv = root.findViewById(R.id.rvReservas)
-        emptyState = root.findViewById(R.id.viewEmptyReservas)
 
-        rv.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
-        rv.adapter = adapter
+        // Reservas
+        shimmerReservas = root.findViewById(R.id.shimmerReservas)
+        rvReservas = root.findViewById(R.id.rvReservas)
+        emptyReservas = root.findViewById(R.id.viewEmptyReservas)
+        rvReservas.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
+        rvReservas.adapter = reservasAdapter
+
+        // Favoritos
+        shimmerFavoritos = root.findViewById(R.id.shimmerFavoritos)
+        rvFavoritos = root.findViewById(R.id.rvFavoritos)
+        emptyFavoritos = root.findViewById(R.id.viewEmptyFavoritos)
+        rvFavoritos.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
+        rvFavoritos.adapter = favoritosAdapter
 
         return root
     }
@@ -42,32 +59,44 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Recuperar usuario logueado desde Prefs
         val userId = Prefs.getUserId(requireContext())
         Log.d("HomeFragment", "ID de usuario obtenido de Prefs: $userId")
 
         if (userId != null) {
-            vm.loadReservas(userId)
-        } else {
-            mostrarShimmer(false)
-            rv.visibility = View.GONE
-            emptyState.visibility = View.VISIBLE
+            reservasVM.loadReservas(userId)
+            favoritosVM.loadFavoritos(userId)
         }
 
-        // Observadores
+        // Observadores Reservas
         viewLifecycleOwner.lifecycleScope.launch {
-            vm.loading.collect { mostrarShimmer(it) }
+            reservasVM.loading.collect { mostrarShimmerReservas(it) }
         }
-
         viewLifecycleOwner.lifecycleScope.launch {
-            vm.reservas.collect { reservas ->
+            reservasVM.reservas.collect { reservas ->
                 if (reservas.isEmpty()) {
-                    rv.visibility = View.GONE
-                    emptyState.visibility = View.VISIBLE
+                    rvReservas.visibility = View.GONE
+                    emptyReservas.visibility = View.VISIBLE
                 } else {
-                    rv.visibility = View.VISIBLE
-                    emptyState.visibility = View.GONE
-                    adapter.updateData(reservas)
+                    rvReservas.visibility = View.VISIBLE
+                    emptyReservas.visibility = View.GONE
+                    reservasAdapter.updateData(reservas)
+                }
+            }
+        }
+
+        // Observadores Favoritos
+        viewLifecycleOwner.lifecycleScope.launch {
+            favoritosVM.loading.collect { mostrarShimmerFavoritos(it) }
+        }
+        viewLifecycleOwner.lifecycleScope.launch {
+            favoritosVM.favoritos.collect { favoritos ->
+                if (favoritos.isEmpty()) {
+                    rvFavoritos.visibility = View.GONE
+                    emptyFavoritos.visibility = View.VISIBLE
+                } else {
+                    rvFavoritos.visibility = View.VISIBLE
+                    emptyFavoritos.visibility = View.GONE
+                    favoritosAdapter.updateData(favoritos)
                 }
             }
         }
@@ -81,15 +110,27 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun mostrarShimmer(activo: Boolean) {
+    private fun mostrarShimmerReservas(activo: Boolean) {
         if (activo) {
-            shimmer.visibility = View.VISIBLE
-            shimmer.startShimmer()
-            rv.visibility = View.GONE
-            emptyState.visibility = View.GONE
+            shimmerReservas.visibility = View.VISIBLE
+            shimmerReservas.startShimmer()
+            rvReservas.visibility = View.GONE
+            emptyReservas.visibility = View.GONE
         } else {
-            shimmer.stopShimmer()
-            shimmer.visibility = View.GONE
+            shimmerReservas.stopShimmer()
+            shimmerReservas.visibility = View.GONE
+        }
+    }
+
+    private fun mostrarShimmerFavoritos(activo: Boolean) {
+        if (activo) {
+            shimmerFavoritos.visibility = View.VISIBLE
+            shimmerFavoritos.startShimmer()
+            rvFavoritos.visibility = View.GONE
+            emptyFavoritos.visibility = View.GONE
+        } else {
+            shimmerFavoritos.stopShimmer()
+            shimmerFavoritos.visibility = View.GONE
         }
     }
 }

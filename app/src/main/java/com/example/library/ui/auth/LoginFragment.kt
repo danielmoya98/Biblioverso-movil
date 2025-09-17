@@ -1,5 +1,6 @@
 package com.example.library.ui.auth
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
@@ -10,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.library.R
 import com.example.library.core.Prefs
+import com.example.library.ui.MainActivity
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
@@ -38,7 +40,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         // Ir a registro
         view.findViewById<TextView>(R.id.tvGoRegister).setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+            findNavController().navigate(R.id.action_login_to_register)
         }
 
         // Observa estado UI
@@ -52,13 +54,15 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             }
         }
 
-        // Observa usuario autenticado
         viewLifecycleOwner.lifecycleScope.launch {
             vm.user.collectLatest { user ->
                 if (user != null) {
                     Prefs.setLoggedIn(requireContext(), true)
                     Prefs.saveUser(requireContext(), user)
-                    findNavController().navigate(LoginFragmentDirections.actionLoginToHome())
+
+                    // Antes navegabas con NavController → ahora abrimos MainActivity
+                    startActivity(Intent(requireContext(), MainActivity::class.java))
+                    requireActivity().finish()
                 }
             }
         }

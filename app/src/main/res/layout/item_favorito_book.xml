@@ -1,0 +1,36 @@
+<!-- res/layout/item_favorito_book.xml -->
+<LinearLayout android:orientation="vertical"
+
+    android:layout_width="150dp"
+    android:padding="8dp"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <ImageView
+            android:id="@+id/imgPortadaFav"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:background="@drawable/bg_img"/>
+
+        <TextView
+            android:id="@+id/tvTituloFav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Título"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/tvSinopsisFav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sinopsis preview"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textSize="12sp"
+            android:textColor="?attr/colorOnSurfaceVariant"/>
+    </LinearLayout>

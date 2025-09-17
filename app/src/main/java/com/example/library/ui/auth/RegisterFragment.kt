@@ -35,7 +35,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
 
         // Ir a login
         view.findViewById<TextView>(R.id.tvGoLogin).setOnClickListener {
-            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+            findNavController().navigate(R.id.action_register_to_login)
         }
 
         // Observa estado UI
@@ -48,7 +48,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
                 }
                 if (state.success) {
                     Snackbar.make(view, "Cuenta creada con éxito", Snackbar.LENGTH_SHORT).show()
-                    findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+                    findNavController().navigate(R.id.action_register_to_login)
                 }
             }
         }
