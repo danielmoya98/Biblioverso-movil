@@ -37,6 +37,7 @@ class FavoritoAdapter(
         if (holder is FavoritoViewHolder && position < items.size) {
             val item = items[position]
             holder.titulo.text = item.titulo
+            holder.sinopsis.text = item.sinopsis
             Glide.with(holder.itemView)
                 .load(item.portada)
                 .placeholder(R.drawable.bg_img)
@@ -58,6 +59,7 @@ class FavoritoAdapter(
     inner class FavoritoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val img: ImageView = view.findViewById(R.id.imgPortadaFav)
         val titulo: TextView = view.findViewById(R.id.tvTituloFav)
+        val sinopsis: TextView = view.findViewById(R.id.tvSinopsisFav)
     }
 
     inner class DiscoverViewHolder(view: View) : RecyclerView.ViewHolder(view)
